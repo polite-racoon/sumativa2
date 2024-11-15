@@ -13,29 +13,8 @@ public class AppLibreria {
         LocalDateTime now = LocalDateTime.now();
         System.out.println("Current Date and Time: " + dtf.format(now));
 
+        final ArrayList<Usuario> usuarios = new ArrayList();
 
-       /* Docente docente1 = new Docente("4-4");
-        Docente docente2 = new Docente("9-9");
-
-        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-
-        usuarios.add(docente1);
-        usuarios.add(docente2);
-        */
-
-        // GENERAMOS DATOS DE USUARIOS BASE
-        /*
-        ArrayList<Usuario> usuarios = new ArrayList<Usuario>(
-                Arrays.asList(
-                        new Docente("1-1"),
-                        new Docente("1-2"),
-                        new Docente("1-3"),
-                        new Estudiante("2-1"),
-                        new Estudiante("2-2"),
-                        new Estudiante("2-3")
-                )
-        );
-         */
         // GENERAMOS DATOS DE LIBROS BASE
         ArrayList<Libro> libros = new ArrayList<Libro>(
                 Arrays.asList(

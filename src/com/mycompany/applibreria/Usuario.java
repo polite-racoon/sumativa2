@@ -8,8 +8,6 @@ public abstract class Usuario {
     private char genero;
     private Prestamo prestamo;
 
-    public static final ArrayList<Usuario> usuarios = new ArrayList();
-
     public Usuario(String RUN, String nombreCompleto, char genero) {
         this.RUN = RUN;
         this.nombreCompleto = nombreCompleto;
@@ -49,16 +47,4 @@ public abstract class Usuario {
     public void setPrestamo(Prestamo prestamo) {
         this.prestamo = prestamo;
     }
-
-    //static methods
-    public static void crearUsuario(String RUN, String nombreCompleto, char genero, String carrera) {
-        Estudiante estudiante =  new Estudiante(RUN, nombreCompleto, genero, carrera);
-        usuarios.add(estudiante);
-    }
-
-    public static void crearUsuario(String RUN, String nombreCompleto, char genero, String profesion, boolean magister, boolean doctor) {
-        Docente docente = new Docente(RUN, nombreCompleto, genero, profesion, magister, doctor);
-        usuarios.add(docente);
-    }
-
 }
