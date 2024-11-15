@@ -95,7 +95,7 @@ public class Prestamo {
         // TENGO QUE COBRAR MULTA SI ES QUE CORRESPONDE
     }
 
-    public static Prestamo ingresarPrestamo(int ISBN, String RUN, ArrayList<Libro> libros, ArrayList<Usuario> usuarios) {
+    public static Prestamo ingresarPrestamo(int ISBN, String run, ArrayList<Libro> libros, ArrayList<Usuario> usuarios) {
         // ASIGNO UNA VARIABLE CON VALOR A LO QUE RETORNE EL MÉTODO BUSCARLIBRO
         Libro libro = buscarLibro(ISBN, libros);
 
@@ -105,7 +105,7 @@ public class Prestamo {
         }
 
         // ASIGNO UNA VARIABLE CON VALOR A LO QUE RETORNE EL MÉTODO BUSCARUSUARIO
-        Usuario usuario = buscarUsuario(RUN, usuarios);
+        Usuario usuario = buscarUsuario(run, usuarios);
 
         // SI EL USUARIO ES NULO, ES PORQUE NO LO HE ENCONTRADO
         if (usuario == null) {
@@ -132,12 +132,12 @@ public class Prestamo {
         return prestamo;
     }
 
-    public static void ingresarDevolucion(int ISBN, String RUN, ArrayList<Prestamo> prestamos) {
+    public static void ingresarDevolucion(int ISBN, String run, ArrayList<Prestamo> prestamos) {
         // EN BASE A LA GUÍA, DEBEMOS VALIDAR QUE EXISTA EL LIBRO Y EL USUARIO
 
         // LUEGO DEBEMOS VALIDAR QUE EL USUARIO A BUSCAR Y EL ISBN EXISTAN
         // ASIGNO UNA VARIABLE CON VALOR A LO QUE RETORNE EL MÉTODO BUSCAR PRESTAMO
-        Prestamo prestamo = buscarPrestamo(ISBN, RUN, prestamos);
+        Prestamo prestamo = buscarPrestamo(ISBN, run, prestamos);
         // SI EL PRÉTAMO ES NULO, ES PORQUE NO LO HE ENCONTRADO
         if (prestamo == null) {
             throw new IllegalArgumentException("El prestamo a buscar no existe.");
@@ -164,14 +164,14 @@ public class Prestamo {
         return null;
     }
 
-    public static Usuario buscarUsuario(String RUN, ArrayList<Usuario> usuarios) {
+    public static Usuario buscarUsuario(String run, ArrayList<Usuario> usuarios) {
         // BUSCO EL LIBRO EN EL ARREGLO DE USUARIOS
         for (int i = 0; i < usuarios.size(); i++) {
             // VOY OBTENIENDO CADA USUARIO EN EL ARREGLO DE USUARIOS
             Usuario usuario = usuarios.get(i);
 
-            // PREGUNTO SI EL RUT DEL USUARIO ES IGUAL AL RUN QUE BUSCO
-            if (usuario.getRUN() == RUN) {
+            // PREGUNTO SI EL RUT DEL USUARIO ES IGUAL AL run QUE BUSCO
+            if (usuario.getRun() == run) {
                 // SI LO ENCUENTRO, LO RETORNO
                 return usuario;
             }
@@ -181,15 +181,15 @@ public class Prestamo {
         return null;
     }
 
-    public static Prestamo buscarPrestamo(int ISBN, String RUN, ArrayList<Prestamo> prestamos) {
+    public static Prestamo buscarPrestamo(int ISBN, String run, ArrayList<Prestamo> prestamos) {
         // BUSCO EL PRESTAMO EN EL ARREGLO DE PRESTAMOS
         for (int i = 0; i < prestamos.size(); i++) {
             // VOY OBTENIENDO CADA PRESTAMO EN EL ARREGLO DE PRESTAMO
             Prestamo prestamo = prestamos.get(i);
 
-            // PREGUNTO SI EL RUT DEL USUARIO ES IGUAL AL RUN QUE BUSCO Y EL ISBN DEL LIBRO ES IGUAL AL ISBN A BUSCAR
+            // PREGUNTO SI EL RUT DEL USUARIO ES IGUAL AL run QUE BUSCO Y EL ISBN DEL LIBRO ES IGUAL AL ISBN A BUSCAR
             // FALTA VALIDAR QUE EL PRÉSTAMO ESTÉ ACTUALMENTE ACTIVO Y NO ENCUENTRE UN PRÉSTAMO YA DEVUELVO
-            if (prestamo.getUsuario().getRUN() == RUN && prestamo.getLibro().getISBN() == ISBN) {
+            if (prestamo.getUsuario().getRun() == run && prestamo.getLibro().getISBN() == ISBN) {
                 // SI LO ENCUENTRO, LO RETORNO
                 return prestamo;
             }
@@ -204,7 +204,7 @@ public class Prestamo {
         // GENERAMOS UN ESTADO BASE
         String estadoBase = "Prestamo: \n" +
                 "ISBN: " + getLibro().getISBN() + "\n" +
-                "RUN: " + getUsuario().getRUN() + "\n" +
+                "run: " + getUsuario().getRun() + "\n" +
                 "Arrendado por: " + obtenerTipoDeUsuario() + "\n" +
                 "Estado: ";
 

@@ -5,8 +5,8 @@ public class Docente extends Usuario {
     private boolean magister;
     private boolean doctor;
 
-    public Docente(String RUN, String nombreCompleto, char genero, String profesion, boolean magister, boolean doctor) {
-        super(RUN, nombreCompleto, genero);
+    public Docente(String run, String nombreCompleto, char genero, String profesion, boolean magister, boolean doctor) {
+        super(run, nombreCompleto, genero);
         this.profesion = profesion;
         this.magister = magister;
         this.doctor = doctor;

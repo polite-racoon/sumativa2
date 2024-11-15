@@ -3,20 +3,20 @@ package com.mycompany.applibreria;
 import java.util.ArrayList;
 
 public abstract class Usuario {
-    private String RUN;
+    private String run;
     private String nombreCompleto;
     private char genero;
     private Prestamo prestamo;
 
-    public Usuario(String RUN, String nombreCompleto, char genero) {
-        this.RUN = RUN;
+    public Usuario(String run, String nombreCompleto, char genero) {
+        this.run = run;
         this.nombreCompleto = nombreCompleto;
         this.genero = genero;
     }
 
     //getters
-    public String getRUN() {
-        return RUN;
+    public String getRun() {
+        return run;
     }
 
     public String getNombreCompleto() {
@@ -32,8 +32,8 @@ public abstract class Usuario {
     }
 
     //setters
-    public void setRUN(String RUN) {
-        this.RUN = RUN;
+    public void setRun(String run) {
+        this.run = run;
     }
 
     public void setNombreCompleto(String nombreCompleto) {
@@ -46,5 +46,10 @@ public abstract class Usuario {
 
     public void setPrestamo(Prestamo prestamo) {
         this.prestamo = prestamo;
+    }
+
+    @Override
+    public String toString() {
+        return "{run: " + this.run + ", nombre: " + this.nombreCompleto + ", genero: " + this.genero;
     }
 }
