@@ -7,25 +7,21 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class AppLibreria {
+    static void crearUsuario(String run, String nombreCompleto, char genero, String carrera, ArrayList<Usuario> usuarios) {
+        try {
+            Estudiante estudiante = new Estudiante(run, nombreCompleto, genero, carrera);
+            usuarios.add(estudiante);
+            System.out.println("Estudiante agregado correctamente");
+        } catch (IllegalArgumentException e) {
+            System.out.println("RUN incorrecto");
+        }
+    }
 
     public static void main(String[] args) {
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         System.out.println("Current Date and Time: " + dtf.format(now));
-
-        //usuarios base
-        final ArrayList<Usuario> usuarios = new ArrayList<Usuario>(
-                Arrays.asList(
-                      new Estudiante("12341234-1", "Pepito TV", 'M', "Teatro"),
-                      new Estudiante("5678567-8", "Cirilo Morrochuca", 'M', "Medicina"),
-                      new Docente("4321432-1", "Pepe Machuca", 'M', "Calculator Prompt Engineer", true, false)
-                )
-        );
-
-        for (Usuario usuario : usuarios) {
-            System.out.println(usuario.toString());
-        }
 
         // GENERAMOS DATOS DE LIBROS BASE
         ArrayList<Libro> libros = new ArrayList<Libro>(
@@ -56,6 +52,14 @@ public class AppLibreria {
 
         ArrayList<Usuario> usuarios = new ArrayList<>();
         // Array para poder generar y borrar usuarios dentro de la memoria
+
+//        crearUsuario("13.753.879-2", "Carlos", 'M', "Ingeniería Informatica", usuarios);
+//        crearUsuario("19.753.879-2", "Pablo", 'M', "Ingeniería Informatica", usuarios);
+//
+//        for (Usuario usuario : usuarios) {
+//            System.out.println(usuario.toString());
+//        }
+
 
         Scanner scanner = new Scanner(System.in);
         int menuBiblioteca;
@@ -122,6 +126,7 @@ public class AppLibreria {
                         }
                     } while (menuUsuario != 4);
                 //Crear Libros
+                    /*
                 case 2:
                     do {
                         System.out.println("1. Crear Libro: ");
@@ -144,6 +149,8 @@ public class AppLibreria {
                     do {
 
                     }
+
+                     */
             }
         } while (menuBiblioteca != 5);
     }
