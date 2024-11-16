@@ -17,6 +17,16 @@ public class AppLibreria {
         }
     }
 
+    static void crearUsuario(String run, String nombreCompleto, char genero, String profesion, boolean magister, boolean doctor, ArrayList<Usuario> usuarios) {
+        try {
+            Docente docente = new Docente(run, nombreCompleto, genero, profesion, magister, doctor);
+            usuarios.add(docente);
+            System.out.println("Docente agregado correctamente");
+        } catch (IllegalArgumentException e) {
+            System.out.println("RUN incorrecto");
+        }
+    }
+
     public static void main(String[] args) {
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -53,9 +63,10 @@ public class AppLibreria {
         ArrayList<Usuario> usuarios = new ArrayList<>();
         // Array para poder generar y borrar usuarios dentro de la memoria
 
+        //prueba
 //        crearUsuario("13.753.879-2", "Carlos", 'M', "Ingeniería Informatica", usuarios);
 //        crearUsuario("19.753.879-2", "Pablo", 'M', "Ingeniería Informatica", usuarios);
-//
+//        crearUsuario("15093841-4", "Helen", 'F', "Arquitecto", false, false, usuarios);
 //        for (Usuario usuario : usuarios) {
 //            System.out.println(usuario.toString());
 //        }
